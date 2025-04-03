@@ -102,19 +102,19 @@ pip install -r requirements.txt
 ## Running the Model
 To test the trained model on an image and get predictions directly in the Python script:
 
-### Step 1: Run `trainingpotato.ipynb`
-```bash
-python trainingpotato.ipynb
+### Step 1: Train the Model
+```Run the Jupyter Notebook:
+jupyter notebook trainingpotato.ipynb
 ```
 
-### Step 2: Modify the test image path in `trainingpotato.ipynb`
-Update this line in `trainingpotato.ipynb` to test a different image:
-```python
-test_image = "path/to/your/test_image.jpg"  # Replace with actual test image path
+### Step 2: Modify the Test Image Path
+Inside trainingpotato.ipynb, update the test image path:
+```
+test_image = "path/to/your/test_image.jpg"  # Replace with actual image path
 ```
 
-### Step 3: View Predictions in Terminal
-Once executed, the script will display:
+### Step 3:  View Predictions
+Once the notebook is executed, the model will output a prediction like:
 ```
 Predicted: Early Blight with 89.5% confidence
 ```
