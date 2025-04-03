@@ -1,134 +1,147 @@
-# Uber Ride Cancellation Prediction
+# Potato Disease Detection using Deep Learning
 
-This project predicts whether an Uber ride will be **canceled or completed** based on factors like user rating, driver rating, time of day, ride demand, and past cancellations. A **Random Forest Classifier** is trained for predictions, and an interactive **Streamlit web app** allows real-time testing.
+This project focuses on detecting **potato leaf diseases** using a **Convolutional Neural Network (CNN)**. The trained model can classify images of potato leaves into **Healthy, Early Blight, and Late Blight** categories. The model is executed in a Python script, and predictions are displayed in the code editor itself.
 
 ---
 
 ## Table of Contents
 - [Project Overview](#project-overview)
-- [Tech Stack](#tech-stack)
 - [Dataset](#dataset)
-- [Model Performance](#model-performance)
+- [Tech Stack](#tech-stack)
 - [Installation](#installation)
-- [Dependencies](#dependencies)
+- [Creating a Virtual Environment](#creating-a-virtual-environment)
+- [Dataset Preparation](#dataset-preparation)
+- [Model Performance](#model-performance)
+- [Running the Model](#running-the-model)
 - [Usage](#usage)
-- [Deployment on Streamlit Cloud](#deployment-on-streamlit-cloud)
 - [Key Features](#key-features)
 - [Visualizations](#visualizations)
 - [Conclusion](#conclusion)
-- [Contributing](#contributing)
-- [Contact](#contact)
 
 ---
 
 ## Project Overview
-The project analyzes Uber ride cancellations using **Machine Learning** and provides an **interactive web-based prediction tool**. The model learns from historical ride data and predicts if a ride will be canceled.
+This project leverages **Deep Learning** to classify potato leaf diseases, assisting farmers in detecting issues early and improving crop health.
 
 ### Features:
-- Predicts **ride cancellations** based on real-world-like factors.
-- Provides **data insights** via visualizations.
-- Web app built with **Streamlit** for real-time predictions.
+- **Detects diseases** using a trained CNN model.
+- **Provides insights** into classification accuracy.
+- **Runs directly in a Python script** without a frontend.
+
+---
+
+## Dataset
+- **Source**: Public dataset (PlantVillage)
+- **Number of Images**: 5,000+
+- **Classes**:
+  - `Healthy` → No disease
+  - `Early Blight` → Early-stage disease
+  - `Late Blight` → Severe infection
+- **Structure:**
+```
+project-directory/
+│── dataset/
+│   ├── healthy/
+│   ├── early_blight/
+│   ├── late_blight/
+│── model.py
+│── README.md
+│── potato_disease_model.h5
+```
 
 ---
 
 ## Tech Stack
 - **Programming Language**: Python
-- **Libraries Used**:
-  - **Data Handling**: `pandas`, `numpy`
-  - **Machine Learning**: `scikit-learn`
-  - **Visualization**: `matplotlib`
-  - **Web App Deployment**: `streamlit`
-  - **Model Saving**: `joblib`
-
----
-
-## Dataset
-- **Number of Records**: 90,000 (synthetic)
-- **Features:**
-  - `user_rating` → Passenger's Uber rating (1.0 - 5.0)
-  - `driver_rating` → Driver's Uber rating (1.0 - 5.0)
-  - `time_of_day` → Time of the ride (`morning`, `afternoon`, `evening`, `night`)
-  - `ride_demand` → Ride demand (`low`, `medium`, `high`)
-  - `past_cancellations` → Number of past canceled rides
-  - `cancellation` → **Target Variable** (0 = Not Canceled, 1 = Canceled)
-
----
-
-## Model Performance
-- **Algorithm Used**: Random Forest Classifier
-- **Metrics**:
-  - **Accuracy**: ~85%
-  - **AUC-ROC Score**: ~0.88
-- **Feature Importance Analysis**: Identifies key factors impacting ride cancellations.
+- **Libraries**:
+  - **TensorFlow/Keras** → Model training
+  - **Matplotlib/Seaborn** → Data visualization
 
 ---
 
 ## Installation
-Follow these steps to set up the project locally:
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/yourusername/uber-ride-cancellation.git
-cd uber-ride-cancellation
+git clone https://github.com/yourusername/potato-disease-detection.git
+cd potato-disease-detection
 ```
 
-### Step 2: Create & Activate Virtual Environment (Recommended)
-#### On Windows:
+### Step 2: Creating a Virtual Environment
+#### Windows:
 ```bash
 python -m venv env
 env\Scripts\activate
 ```
-
-#### On Mac/Linux:
+#### Mac/Linux:
 ```bash
 python3 -m venv env
 source env/bin/activate
 ```
 
 ### Step 3: Install Dependencies
-#### Using `requirements.txt`:
 ```bash
 pip install -r requirements.txt
 ```
 
-#### Or install manually:
+---
+
+## Dataset Preparation
+1. **Download Dataset**: [Potato Leaf Dataset](https://drive.google.com/drive/folders/1tsHzhE6b3byruZ5mv75J-i-Nbb2DK3bT)
+2. **Extract Data** into the `dataset/` folder.
+
+---
+
+## Model Performance
+- **Accuracy**: ~92%
+- **Loss**: ~0.15
+- **Confusion Matrix, Precision, Recall** used for performance evaluation.
+
+---
+
+## Running the Model
+To test the trained model on an image and get predictions directly in the Python script:
+
+### Step 1: Run `model.py`
 ```bash
-pip install pandas numpy joblib scikit-learn matplotlib streamlit
+python model.py
+```
+
+### Step 2: Modify the test image path in `model.py`
+Update this line in `model.py` to test a different image:
+```python
+test_image = "path/to/your/test_image.jpg"  # Replace with actual test image path
+```
+
+### Step 3: View Predictions in Terminal
+Once executed, the script will display:
+```
+Predicted: Early Blight with 89.5% confidence
 ```
 
 ---
 
 ## Usage
-### Step 1: Run the Streamlit App
-```bash
-streamlit run app.py
-```
 
-### Step 2: Interact with the Web App
-- Enter values for **user rating, driver rating, time of day, ride demand, and past cancellations**.
-- Click **Predict** to see if the ride is likely to be canceled.
+### Running the Project Locally
+1. **Run the Python script**:
+```bash
+python model.py
+```
+2. **Modify the test image path** inside `model.py` to test different images.
+3. **View results directly in the terminal.**
 
 ---
 
 ## Key Features
-- **Predicts ride cancellations** using machine learning.
-- **Interactive UI** built with Streamlit.
-- **Feature importance analysis** for better insights.
-- **Real-time data input** for live predictions.
+- **CNN-based disease detection** for potato leaves.
+- **Runs without a frontend**, making it simple to use.
+- **High accuracy (92%)** trained with TensorFlow.
 
----
-
-## Visualizations
-The project includes:
-- **Feature Importance Graphs**
-- **Calibration Curve**
-- **ROC Curve**
 
 ---
 
 ## Conclusion
-This project demonstrates the power of machine learning in predicting ride cancellations. By using historical data, we can make data-driven decisions to improve ride efficiency.
+This project provides a **machine learning solution** for detecting potato leaf diseases. The **CNN model achieves 92% accuracy** and can be easily used in practical applications.
 
 ---
-
-
