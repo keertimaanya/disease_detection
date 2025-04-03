@@ -103,7 +103,8 @@ pip install -r requirements.txt
 To test the trained model on an image and get predictions directly in the Python script:
 
 ### Step 1: Train the Model
-```Run the Jupyter Notebook:
+Run the Jupyter Notebook:
+```
 jupyter notebook trainingpotato.ipynb
 ```
 
