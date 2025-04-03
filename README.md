@@ -102,13 +102,13 @@ pip install -r requirements.txt
 ## Running the Model
 To test the trained model on an image and get predictions directly in the Python script:
 
-### Step 1: Run `model.py`
+### Step 1: Run `trainingpotato.ipynb`
 ```bash
-python model.py
+python trainingpotato.ipynb
 ```
 
-### Step 2: Modify the test image path in `model.py`
-Update this line in `model.py` to test a different image:
+### Step 2: Modify the test image path in `trainingpotato.ipynb`
+Update this line in `trainingpotato.ipynb` to test a different image:
 ```python
 test_image = "path/to/your/test_image.jpg"  # Replace with actual test image path
 ```
@@ -126,9 +126,9 @@ Predicted: Early Blight with 89.5% confidence
 ### Running the Project Locally
 1. **Run the Python script**:
 ```bash
-python model.py
+python trainingpotato.ipynb
 ```
-2. **Modify the test image path** inside `model.py` to test different images.
+2. **Modify the test image path** inside `trainingpotato.ipynb` to test different images.
 3. **View results directly in the terminal.**
 
 ---
